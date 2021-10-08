@@ -19,10 +19,30 @@ public class CustomView extends View {
         setBackgroundColor(Color.YELLOW);
     }
     @Override
-    protected  void onDraw(Canvas canvas){
+    protected void onDraw(Canvas canvas) {
         Paint paint = new Paint();
+        // initial color
+        paint.setColor(Color.YELLOW);
+        //background color
+        canvas.drawColor(Color.BLUE);
+        // yellow rec
+        canvas.drawRoundRect(new RectF(30,50,330,550), 15, 15, paint);
+        // yellow cir
+        canvas.drawOval(new RectF(450,50,750,550), paint);
+        // red cir
         paint.setColor(Color.RED);
-        canvas.drawArc(new RectF(10,120,110,220),120,270,true,paint);
-
+        canvas.drawArc(new RectF(30,600,330,1100), 360, 1000,
+                true, paint);
+        //line
+        paint.setColor(Color.YELLOW);
+        float[] pts={ 30, 1250,
+                300, 1350,
+                300, 1350,
+                60, 1450,
+                60, 1450,
+                360, 1500};
+        paint.setStrokeWidth(10);
+        canvas.drawLines(pts, paint);
     }
+
 }
